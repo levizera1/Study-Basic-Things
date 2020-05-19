@@ -1,0 +1,8 @@
+1. Parentesis is more important than every other math type in Python
+    Expressions - Operators:
+        1.   | + | - | * | / | ** | % |
+	2. The Operators Preferences: First we have (), **, /, *, (+ or -).
+	3. Left to Right
+    Types - Types of data
+        1. Numbers(int), Strings(str), Boolean, Array, Constants, Variables, Decimal Numbers(float).
+	 

@@ -1,0 +1,1026 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>SIGEduc - Sistema Integrado de Gestão da Educação</title>
+	<link class="component" href="/sigeduc/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" rel="stylesheet" type="text/css" /><link class="component" href="/sigeduc/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" media="rich-extended-skinning" rel="stylesheet" type="text/css" /><script type="text/javascript">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src="/sigeduc/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.jsf" type="text/javascript"></script><link rel="shortcut icon" href="/sigeduc/img/sigaa.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<script type="text/javascript" src="/shared/jsBundles/jawr_loader.js" ></script>
+	<script type="text/javascript">
+		JAWR.loader.style('/javascript/ext-2.0.a.1/resources/css/ext-all.css', 'all');
+		JAWR.loader.style('/css/public.css','all');
+		JAWR.loader.style('/css/customizacao.css','all');
+	 	JAWR.loader.script('/bundles/js/sigaa_base.js');
+	 	JAWR.loader.script('/bundles/js/ext2_all.js');
+	</script>
+	
+	<link rel="stylesheet" type="text/css" media="all" href="/sigeduc/cssBundles/gzip_N1998668079/public/css/public.css" />
+
+	<link rel="stylesheet" type="text/css" media="all" href="/sigeduc/cssBundles/gzip_N301692656/public/css/customizacao.css" />
+
+	
+	<!-- estilo da mensagem de loading -->
+	<style>
+	
+	#aviso_na_tela{
+
+	 text-align:center;
+	 vertical-align:middle;
+	 border: 1px solid #ccc;
+	 visibility: block;
+	 height: 100%;
+	 
+  	 width:994px;
+	 
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -497px;
+	 
+	 background-color: #CCC;
+	 opacity:0.3;
+	 filter:alpha(opacity=30);
+	 display:none;
+	 z-index: 999998;
+}
+
+#loading{
+	padding: 4px;
+	background: #FFF;
+	width: 280px;
+	height: 80px;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	margin-left: -140px;
+	margin-top: -40px;
+	display:none;
+	border: 1px solid #ccc;
+	z-index: 999999;
+
+}
+	
+	</style>
+	
+	<script type="text/javascript">
+			function show_carregando(){	
+				document.getElementById("aviso_na_tela").style.display='block';
+				document.getElementById("aviso_na_tela").style.height= document.getElementById("container").clientHeight + 'px';
+				document.getElementById("loading").style.display='block';
+			}
+			
+			function hidde_carregando(){	
+				document.getElementById("aviso_na_tela").style.display='none';
+				document.getElementById("loading").style.display='none';
+			}
+			
+	</script>
+	
+	<!-- FIM do estilo da mensagem de loading -->
+	
+</head>
+
+<body>
+
+	<!-- Mensagem de Loading -->
+	
+	<div id="aviso_na_tela">
+	</div>
+	
+	<div id="loading">
+	<center>
+		<h3>Aguarde, estamos processando as informações</h3>
+		<br/>
+		<img id="img_carregando" src="/sigeduc/img/loader.gif">
+	</center>
+	</div>
+	<!-- fim da mensagem de loading -->
+
+	<div id="container">
+		<div id="container-inner">
+
+	<div id="cabecalho">
+		<div id="logo">
+				<a href="/sigeduc/public/"> <img src="/shared/img/instituicao/brasao_rn.png" height="85%"/> </a>
+		</div>
+		<div id="identificacao">
+			<span class="ufrn"> Secretaria de Estado da Educa&#231;&#227;o, da Cultura, do Esporte e do Lazer </span>
+			<span class="data">
+				 Natal, 
+				 01 de Maio de 
+				 2020 
+			</span>
+			<a id="home" href="/sigeduc/public/" title="P&#225;gina inicial" style="width: 450px;"> </a>
+			<div style="margin-left: 55%; margin-top: 30px;">
+				<ul>
+					<li>
+						
+					</li>
+				</ul>
+			</div>
+			<div id="acesso">
+				<ul>
+					
+						<li class="acesso_esq_bg"></li>
+						<li class="acesso_centro_bg" style="margin-left: 0">
+							<a href="/sigeduc/" alt="Clique aqui para logar-se no SIGEduc" title="Clique aqui para logar-se no SIGEduc">
+								Entrar no sistema
+							</a>
+						</li>
+						<li class="acesso_dir_bg"></li>
+					
+				</ul>
+			</div>
+		</div>
+		<br clear="all"/>
+	</div>
+
+
+	<div id="corpo">
+	
+
+
+<script src="/sigeduc/javascript/encoding.js" type="text/javascript" ></script>
+
+<script>
+
+
+	function fecharPainelErros() {
+		var iterator = document.evaluate("//div[@id='painel-erros']", document,null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+		var thisNode = iterator.iterateNext();
+
+		while (thisNode) {
+			thisNode.style.display = 'none';
+			thisNode = iterator.iterateNext();
+		}
+	}
+</script>
+
+
+
+
+
+
+
+<style>
+
+.orientacoes{
+z-index: 999999;
+border: 1px solid gray;
+
+}
+</style>
+
+
+	
+
+
+
+
+
+
+
+
+
+<style>
+#bg-bottom{
+	background: #FFF url(/shared/img/images/menu/bg_menu_middle.jpg) repeat-y;
+	min-height: 320px;
+	height:auto !important;
+  	height: 320px;
+	position: relative;
+}
+
+#opcoes-modulo div.opcao {
+	height: 60px;
+}
+#opcoes-modulo div.opcao a {
+	font-size: 10.1px;
+}
+
+div.banner {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width:60%;
+  text-align: center;
+}
+
+/* #noticias-portal {
+	background: #FFFCF5;
+	padding: 10px 5px 5px 10px;
+	margin: 5px 0 0 5px;
+	color: #433F0F;
+	position: relative;
+	height: 100px;
+} */
+</style>
+
+<div id="menu">
+
+	<div id="bg-top">&nbsp;</div>
+	<div id="bg-bottom">
+		
+		<div id="modulos">
+			<div id="l-ensino" class="item item-over" >
+				<a href="#" onclick="setAba('p-ensino')"><span> Escolas </span></a>
+			</div>
+			<div id="l-academico" class="item" >
+				<a href="/sigeduc/public/matricula/home.jsf"> Matr&#237;cula </a>
+			</div>
+			<div id="l-pronatec" class="item" >
+				<a href="#" onclick="setAba('p-pronatec')"><span> Pronatec </span></a>
+			</div>
+			<div id="l-processo" class="item" >
+				<a href="#" onclick="setAba('p-processo')"><span> Processo Seletivo </span></a>
+			</div>
+			<div id="l-evento" class="item" >
+				<a href="#" onclick="setAba('p-evento')"><span> Eventos </span></a>
+			</div>
+
+			<div id="l-monitoramento" class="item" >
+				<a href="/sigeduc/public/transparencia/pages/home/portal.jsf">Monit. da Educa&#231;&#227;o</a>
+			</div>
+
+			<div id="l-gestao-estrategica" class="item" >
+				<a href="#" onclick="setAba('p-gestao-estrategica')"><span> Plano Estadual de Educa&#231;&#227;o </span></a>
+			</div>
+
+			<div id="l-stricto" class="item" >
+				<a href="#" onclick="setAba('p-stricto')"><span> Outros </span></a>
+			</div>
+		</div>
+		
+		<div id="opcoes-modulo"  >
+			<div id="opcoes-slider">
+				
+<form id="form_matricula" name="form_matricula" method="post" action="/sigeduc/public/home.jsf" enctype="application/x-www-form-urlencoded" style="background: transparent;">
+<input type="hidden" name="form_matricula" value="form_matricula" />
+<input type="hidden" name="DOUBLE_CHECK_TOKEN" value="" />	
+					
+					<div id="p-ensino" class="painel" >
+						
+
+<dl>
+	<dt>
+		<div class="opcao unidadesescolares">
+		<h3>Unidades Escolares</h3>
+		
+<script type="text/javascript" language="Javascript">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i = 0;i < adp.length;i++) {f.removeChild(adp[i]);}}};function apf(f, pvp) {var adp = new Array();f.adp = adp;var ps = pvp.split(',');for (var i = 0,ii = 0;i < ps.length;i++,ii++) {var p = document.createElement("input");p.type = "hidden";p.name = ps[i];p.value = ps[i + 1];f.appendChild(p);adp[ii] = p;i += 1;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>
+<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_2,form_matricula:j_id_jsp_316272730_2','');}return false">
+			Consulte as unidade escolares do seu bairro, distrito ou municipio. 
+		</a> 	
+		</div>
+	</dt>
+	<dt>
+		<div class="opcao mapaescolas">
+		<h3>Mapa de Unidades Escolares</h3>
+		<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_3,form_matricula:j_id_jsp_316272730_3','');}return false">
+			Visualize o mapa de Unidades Escolares do Rio Grande do Norte.
+		</a>
+		</div>
+	</dt>
+	<dt>
+	
+		<div class="opcao unidadesproximas">
+		<h3>Unidades Escolares pr&#243;ximas ao meu endere&#231;o</h3>
+		<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_4,form_matricula:j_id_jsp_316272730_4','');}return false">
+			
+			Consulte as unidades escolares pr&#243;ximas ao seu endere&#231;o. 
+		</a>			
+		</div>
+	</dt>
+
+	<dt>
+		<div class="opcao mapaindicadores">
+		<h3>Mapa de indicadores</h3>
+		<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_5,form_matricula:j_id_jsp_316272730_5','');}return false">
+			Visualize o mapa de indicadores das Unidades Escolares do Rio Grande do Norte.
+		</a>
+		</div>
+	</dt>
+</dl>
+					</div>
+					
+					<div id="p-pronatec" class="painel" >
+						
+
+<dl>
+	
+	 
+	 
+	<dt>
+		<div class="opcao escolas-participantes">
+		<h3>Realizar Nova Inscri&#231;&#227;o em Curso</h3>
+		<a href="#" onclick="alert('Prezado Estudante / Respons&#225;vel, a inscri&#231;&#227;o em cursos pronatec dever&#225; ser feita atrav&#233;s do portal do estudante ou na secretaria da sua escola. Favor efetuar login no SIGEduc.');">
+			Permite o gestor das institui&#231;&#245;es ofertantes acessar a &#193;rea administrativa. 
+		</a> 	
+		</div>
+	</dt>
+	
+	
+	<dt>
+		<div class="opcao autenticacao">
+		<h3>Minha Inscri&#231;&#227;o</h3>
+		<a href="#" onclick="alert('Prezado Estudante / Respons&#225;vel, a consulta de inscri&#231;&#227;o est&#225; tempor&#225;riamente cancelada.');">
+			Permite aos candidatos consultar uma inscri&#231;&#227;o, imprimir segunda via de comprovante e cancelar inscri&#231;&#227;o. 
+		</a>
+		
+	</dt>
+	
+	 
+	<dt>
+		<div class="opcao resultados">
+		<h3>Consultar Estudantes Classificados </h3>
+		<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_6,form_matricula:j_id_jsp_316272730_6','');}return false">
+			Permite aos candidatos visualizarem o comprovante de inscri&#231;&#227;o. 
+		</a> 	
+		</div>
+	</dt>
+	
+
+</dl>
+					</div>
+					
+					<div id="p-processo" class="painel" >
+						
+<dl>
+	<dt>
+		<div class="opcao escolas-participantes">
+		<h3>Realizar Nova Inscri&#231;&#227;o em Oferta</h3>
+		<!-- <a href="#" onclick="alert('Prezado Estudante / Respons&#225;vel, a inscri&#231;&#227;o em cursos  dever&#225; ser feita atrav&#233;s do portal do estudante ou na secretaria da sua escola. Favor efetuar login no SIGEduc.');"> -->
+			<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_7,form_matricula:j_id_jsp_316272730_7','');}return false">
+				Permite o estudante se candidatar a um curso ofertado. 
+			</a> 	 
+		 	
+		</div>
+	</dt>
+	
+	
+	<dt>
+		<div class="opcao autenticacao">
+		<h3>Minha Inscri&#231;&#227;o</h3>
+		<!-- <a href="#" onclick="alert('Prezado Estudante / Respons&#225;vel, a consulta de inscri&#231;&#227;o est&#225; tempor&#225;riamente cancelada.');"> -->
+		 	<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_8,form_matricula:j_id_jsp_316272730_8','');}return false">
+				Permite aos candidatos consultar uma inscri&#231;&#227;o, imprimir segunda via de comprovante e cancelar inscri&#231;&#227;o. 
+			</a>  
+		</a>
+	</dt>
+	
+	 
+		
+
+</dl>
+
+
+
+					</div>
+					
+					<div id="p-evento" class="painel" >
+						<dl>
+	<dt>
+		<div class="opcao escolas-participantes">
+		<h3>Visualizar Eventos Dispon&#237;veis</h3>
+		<a href="/sigeduc/public/eventos/exibir_eventos.jsf">
+			
+				Confira a lista de Eventos dispon&#237;veis. 
+			 	 
+			</a>
+		 	
+		</div>
+	</dt>
+</dl>
+
+					</div>
+					
+					<div id="p-gestao-estrategica" class="painel" >
+						<dl>
+	<dt>
+		<div class="opcao gestao-estrategica">
+			<h3>Autocadastro</h3>
+			<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_9,form_matricula:j_id_jsp_316272730_9','');}return false">
+				Fa&#231;a seu cadastro no SIGEduc para ter acesso ao m&#243;dulo .
+			</a>
+		</div>
+	</dt>
+</dl>
+
+					</div>
+					
+					<div id="p-stricto" class="painel" >
+						
+<dl>
+
+	<dt>
+		<div class="opcao autenticacao">
+		<h3>Autentica&#231;&#227;o de Documentos</h3>
+		<a href="/sigeduc/documentos/?aba=p-academico">Efetue a autentica&#231;&#227;o dos documentos emitidos pelo SIGEduc </a>
+		</div>
+	</dt>
+	<dt>
+		<div class="opcao docentes">
+		<h3>Professores</h3>
+		<a href="/sigeduc/public/docente/busca_docentes.jsf?aba=p-academico&redirect=true">
+			Busque os professores da rede estadual de ensino.
+		</a>
+		</div>
+	</dt>	
+	<br clear="all"/>
+	
+	
+	<dt>
+		<div class="opcao calendario">
+		<h3>Calend&#225;rio Escolar 2020 </h3>
+		<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_10,form_matricula:j_id_jsp_316272730_10','_blank');}return false">Consulte o calend&aacute;rio escolar</a>
+		</div>
+	</dt>
+	
+	
+	<dt>
+		<div class="opcao manuais">
+		<h3>Manuais do Sistema</h3>
+		<a href="http://sigeduc.rn.gov.br/ajuda/" target="blank">
+		Consulte o material de ajuda para o SIGEduc</a>
+		</div>
+	</dt>
+	
+	<br clear="all"/>
+	
+	<dt>
+		<div class="opcao entrarEmContato">
+		<h3>Entrar em contato</h3>
+		<a href="/sigeduc/public/ouvidoria/Manifestacao/form.jsf?aba=p-ouvidoria" target="blank">
+		Envie sua sugest&#227;o, reclama&#231;&#227;o ou cr&#237;tica referente a sua escola, entrando em contato com a ouvidoria.</a>
+		</div>
+	</dt>
+	<dt>
+		<div class="opcao escolas-participantes">
+		<h3>Demonstrar Interesse em Oferta</h3>
+			<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_11,form_matricula:j_id_jsp_316272730_11','');}return false">
+				Permite ao servidor informar interesse em uma oferta 
+			</a> 	 
+		</div>
+	</dt>
+	<dt>
+		<div class="opcao pesquisadores">
+		<h3>Concurso</h3>
+		<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['form_matricula'],'form_matricula:j_id_jsp_316272730_12,form_matricula:j_id_jsp_316272730_12','');}return false">Acessar Concursos</a>
+		</div>
+	</dt>
+	<!-- <dt>
+		<div class="opcao transparencia">
+		<h3>Monitoramento da Educa&#231;&#227;o</h3>
+		<a href="/sigeduc/public/transparencia/pages/home/portal.jsf">Acessar Monitoramento da Educa&#231;&#227;o</a>
+		</div>
+	</dt> -->
+</dl>
+<br clear="all"/>
+					</div>
+					
+					<input name="aba" type="hidden" value="" id="aba"/>
+				<input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3" />
+</form>	
+			</div>
+		</div>
+	</div>
+	<br clear="all">
+</div>
+
+<br clear="all"/>
+
+
+<form id="j_id_jsp_316272730_13" name="j_id_jsp_316272730_13" method="post" action="/sigeduc/public/home.jsf" enctype="application/x-www-form-urlencoded" style="height: 480px">
+<input type="hidden" name="j_id_jsp_316272730_13" value="j_id_jsp_316272730_13" />
+<input type="hidden" name="DOUBLE_CHECK_TOKEN" value="" />
+	<div align="center">
+		<div class="banner">
+			
+			<script type="text/javascript">
+	   			var fcontent = new Array();
+
+	   			fcontent[0]= "<p><a href='/shared/verArquivo?idArquivo=262283&key=af0ac6262cd2a5c3a6c8a44c4200bdd8&salvar=false ' target='_blank'><img src='images/banner_durval_paiva.png' width='356px' height='477px' /></a></p>";
+	   			fcontent[1]="<p><a href='#'> <img src='images/banner-apoio-ao-ensino.png'/> </a></p>";	
+	   			fcontent[2]="<p><a href='https://shar.es/aHx5mN' target='_blank'><img src='images/saberes-em-tela.png' /> </a></p>";	
+
+	 		</script>
+			
+			<div style="position: relative; padding-bottom:30px;">
+				<script type="text/javascript" src="/shared/javascript/scroller-portal.js"></script>
+			</div>
+		</div>
+	</div>
+<input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3" />
+</form>
+
+
+<br>
+<br>
+
+<div id="noticias">
+	<h3> Not&#237;cias e Comunicados </h3>
+
+	
+
+	
+	
+
+	
+	
+	
+	<div class="noticia">
+		<h4>
+			Saberes em Tela
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 UernTV estreia "Saberes em Tela" com conte&#250;dos para estudantes durante a quarenta - <b><a title="link" href="https://shar.es/aHx5mN">Clique Aqui para Acessar</a></b>
+
+<br><br><i>Programa apresentar&#225; videoaulas de todas as disciplinas, servindo como suporte de ensino aos estudantes.</i>
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			PANDEMIA DE CORONAV&#205;RUS
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 DOIS GUIAS: COMO EDUCAR CRIAN&#199;AS E ADOLESCENTES NA PANDEMIA DE CORONAV&#205;RUS?
+(ajudem a divulgar!)
+
+Quais medidas devem ser tomadas para a prote&#231;&#227;o e educa&#231;&#227;o das crian&#231;as e adolescentes?
+
+Guias para m&#227;es, pais, comunidades escolares, professores e gestores.
+
+Campanha Nacional pelo Direito &#224; Educa&#231;&#227;o e plataforma Cada Crian&#231;a lan&#231;am dois guias de orienta&#231;&#245;es
+ 
+GUIA 1 - Para comunidade escolar, fam&#237;lia e profissionais da educa&#231;&#227;o e prote&#231;&#227;o da crian&#231;a e do adolescente
+Acesse aqui: 
+<p><a title="link" href="https://media.campanha.org.br/acervo/documentos/COVID-19_Guia1_FINAL.pdf"> Clique aqui</a></p>
+
+GUIA 2 - Para tomadores de decis&#227;o do poder p&#250;blico em todas as esferas federativas - 
+Acesse aqui: 
+<p><a title="link" href="https://media.campanha.org.br/acervo/documentos/COVID-19_Guia2_FINAL.pdf"> Clique aqui</a></p>
+
+
+A Campanha Nacional pelo Direito &#224; Educa&#231;&#227;o e a plataforma Cada Crian&#231;a/100 Milh&#245;es ("Livres, seguras e com direito &#224; educa&#231;&#227;o") agradecem &#224;s dezenas de volunt&#225;rios ligados &#224; Rede da Campanha - destacados nos volumes - que contribu&#237;ram para a produ&#231;&#227;o dos guias.
+
+Leia mais aqui:
+
+<p><a title="link" href="https://campanha.org.br/noticias/2020/03/23/covid-19-quais-medidas-devem-ser-tomadas-pela-protecao-e-educacao-das-criancas-e-adolescentes-campanha-lanca-dois-guias-de-orientacoes"> Clique aqui</a></p>
+
+
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Atendimento do SIGEduc
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 NOTA    
+                                                           
+Para fins de cumprimento dos procedimentos preventivos de que trata o Decreto estadual n&#186; 29.512, de 13 de mar&#231;o de 2020, publicado no Di&#225;rio Oficial do Estado do dia 14 de mar&#231;o de 2020, que visa reduzir o perigo iminente de propaga&#231;&#227;o do cont&#225;gio causado pelo novo Coronav&#237;rus (COVID-19).
+Informamos que o atendimento do SIGEduc ser&#225; realizado exclusivamente atrav&#233;s de abertura de chamado no SIGEduc.
+
+Att, 
+GPD/SEEC
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Matr&#237;culas 2020
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		        Dia 31/01/2020 &#224;s 08h iniciar&#225; o per&#237;odo de solicita&#231;&#245;es de vagas para novos estudantes (Vagas Remanescentes) atrav&#233;s do Portal da Matricula (portal p&#250;blico do SIGEduc) como tamb&#233;m, novas solicita&#231;&#245;es de transfer&#234;ncias (no Portal da Gest&#227;o Escolar) para os estudantes que n&#227;o realizaram ou que n&#227;o tiveram vaga concedida. Ao realizar as referidas solicita&#231;&#245;es, as mesmas ser&#227;o concedidas conforme disponibilidade de vaga da escola.
+
+INFORMA&#199;&#213;ES IMPORTANTES:
+A solicita&#231;&#227;o com VAGA CONCEDIDA tem o prazo de 03 dias &#250;teis para a efetiva&#231;&#227;o. Caso n&#227;o seja efetivada a mesma ser&#225; CANCELADA por motivo de prazo expirado. 
+&#160;
+	O estudante que obteve vaga concedida, informando que possui necessidade educacional especial,  deve apresentar no ato da efetiva&#231;&#227;o da matr&#237;cula na escola, um dos comprovantes abaixo:
+Plano de Atentimento AEE (Atendimento Educacional Especial) e/ou PEI (Plano Educacional Individualizado).
+Avalia&#231;&#227;o Biopsicossocial da defici&#234;ncia;
+Avalia&#231;&#227;o psicopedag&#243;gica ou relat&#243;rio pedag&#243;gico;
+Laudo M&#233;dico.
+
+	A SEEC agradece, desde j&#225;, a aten&#231;&#227;o e a observ&#226;ncia dos prazos e dos crit&#233;rios para matricula e transfer&#234;ncia, desejando um Ano Letivo pleno de realiza&#231;&#245;es e sucesso na aprendizagem dos estudantes do Rio Grande do Norte!
+
+		</p>
+		
+		<p>
+			<a href="/sigeduc/verProducao?idProducao=320802
+				&key=44aeadcc9379e5a3d3ca46290a46b8d0" target="_blank">
+				<img src="/shared/img/download.png"/> Baixar Anexo
+				
+				
+			</a>
+		</p>	
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			TRANSFER&#202;NCIA AUTOM&#193;TICA E POR INTERESSE PR&#211;PRIO
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 Aos Diretores de DIREC, Diretores de Unidades Escolares e Unidades Educacionais N&#227;o-Escolares 
+Prezados Pais/Respons&#225;veis e comunidade em geral
+
+
+	A Secretaria de Estado da Educa&#231;&#227;o, da Cultura, do Esporte e do Lazer informa sobre as medidas adotadas para a matr&#237;cula, transfer&#234;ncia e organiza&#231;&#227;o da oferta das escolas, no ano letivo 2020:
+
+1.	TRANSFER&#202;NCIA AUTOM&#193;TICA E POR INTERESSE PR&#211;PRIO
+O estudante da Rede Estadual de Ensino e da Rede Municipal dos munic&#237;pios de Natal e Maca&#237;ba, que desejar transfer&#234;ncia para uma escola da Rede Estadual, deve observar o per&#237;odo para solicita&#231;&#227;o, iniciado dia 26/12/2019 e dispon&#237;vel at&#233; o dia 24/01/2020. A divulga&#231;&#227;o do resultado ser&#225; realizada no dia 27/01/2020 &#224;s 15h. 
+		Para a consolida&#231;&#227;o do resultado de vaga concedida para o estudante com transfer&#234;ncia, o SIGEDUC processar&#225; de acordo com os crit&#233;rios abaixo, respectivamente:
+1.	Irm&#227;o na escola selecionada;
+2.	Georreferenciamento - escola origem x escola destino;
+3.	N&#250;mero de ordem da solicita&#231;&#227;o de matr&#237;cula.
+
+
+INFORMA&#199;&#213;ES IMPORTANTES:
+A solicita&#231;&#227;o com VAGA CONCEDIDA tem o prazo de 03 dias &#250;teis para a efetiva&#231;&#227;o. Caso n&#227;o seja efetivada a mesma ser&#225; CANCELADA por motivo de prazo expirado. 
+
+O estudante que obtive vaga concedida, informando que possui necessidade educacional especial, deve,  deve apresentar, no ato da efetiva&#231;&#227;o da matr&#237;cula na escola,, um dos comprovantes abaixo:
+&#149;	Plano de Atendimento AEE (Atendimento Educacional Especial) e/ou PEI (Plano Educacional Individualizado).
+&#149;	Avalia&#231;&#227;o Biopsicossocial da defici&#234;ncia;
+&#149;	Avalia&#231;&#227;o psicopedag&#243;gica ou relat&#243;rio pedag&#243;gico;
+&#149;	Laudo M&#233;dico.
+
+Destaca-se que dia 31/01/2020 &#224;s 08:00 inicia o per&#237;odo para solicita&#231;&#245;es de novos estudantes, quando ser&#227;o disponibilizadas as escolas que possuem vagas. O estudante que realizou a solicita&#231;&#227;o no per&#237;odo anterior e n&#227;o obteve vaga, ter&#225; seu CPF liberado para nova solicita&#231;&#227;o.
+
+
+A SEEC agradece, desde j&#225;, a aten&#231;&#227;o e a observ&#226;ncia dos prazos e dos crit&#233;rios para matricula e transfer&#234;ncia, desejando um Ano Letivo pleno de realiza&#231;&#245;es e sucesso na aprendizagem dos estudantes do Rio Grande do Norte!
+
+
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Professores interessados em cursar licenciaturas j&#225; podem se cadastrar na CAPES
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 Professores interessados em cursar licenciaturas j&#225; podem se cadastrar na CAPES
+
+Professores em exerc&#237;cio das redes p&#250;blicas de ensino interessados em se especializar por meio de um curso de licenciatura na &#225;rea que atuam devem cadastrar seus curr&#237;culos na Plataforma CAPES de Educa&#231;&#227;o B&#225;sica, at&#233; o dia 31 de janeiro. A oportunidade &#233; para os candidatos que ainda n&#227;o t&#234;m uma gradua&#231;&#227;o e, para isso, dever&#227;o preencher os formul&#225;rios com dados sobre a sua forma&#231;&#227;o e atua&#231;&#227;o profissional.
+
+Pra qualquer  professor da rede p&#250;blica( estadual e municipal)  em exerc&#237;cio na sala de aula e que  ainda n&#227;o tem curso superior
+ 
+<p><a title="link" href="http://educadores.educacao.ba.gov.br/noticias/professores-interessados-em-cursar-licenciaturas-ja-podem-se-cadastrar-na-capes">Clique</a></p>
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Aten&#231;&#227;o - Matr&#237;culas 2020
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		                                             SECRETARIA DE ESTADO DA EDUCA&#199;&#195;O, DA CULTURA, DO ESPORTE E DO LAZER
+
+Aos Diretores de DIREC, Diretores de Unidades Escolares e Unidades Educacionais N&#227;o-Escolares.
+Prezados Pais/Respons&#225;veis e comunidade em geral
+
+	A Secretaria de Estado da Educa&#231;&#227;o, da Cultura, do Esporte e do Lazer informa sobre as medidas adotadas para a matr&#237;cula, transfer&#234;ncia e organiza&#231;&#227;o do ano letivo 2020:
+
+
+1.	SOLICITA&#199;&#195;O DE VAGA ANTECIPADA
+
+	As solicita&#231;&#245;es antecipadas de vaga para estudante com Necessidades Educacionais Especiais (NEE) e para as escolas que ofertam Ensino M&#233;dio Integral, os Centros Profissionais de Tempo Integral, Centro Estadual de Educa&#231;&#227;o Profissional Senador Jess&#233; Pinto Freire-CENEP e Centro Estadual de Educa&#231;&#227;o Profissional Professora Djanira Brasilino de Souza ocorreram durante o per&#237;odo de 06/11 a 30/12/2019, com a divulga&#231;&#227;o da 1&#170; Chamada foi realizada no dia 08/01/2020.
+
+		Para a consolida&#231;&#227;o do resultado no SIGEDUC, o processamento de matr&#237;culas est&#225; orientado pelos crit&#233;rios abaixo, respectivamente:
+
+1.	Estudante NEE, em vulnerabilidade social, oriundo de escola p&#250;blica e ordem de inscri&#231;&#227;o;
+2.	Estudante NEE, oriundo de escola p&#250;blica e ordem de inscri&#231;&#227;o;
+3.	Estudante oriundos de escola p&#250;blica, vulnerabilidade social e ordem de inscri&#231;&#227;o;
+4.	Estudante de escola p&#250;blica e ordem de inscri&#231;&#227;o;
+5.	Estudante NEE de escola privada e ordem de inscri&#231;&#227;o;
+6.	Estudantes por ordem de inscri&#231;&#227;o.
+
+O estudante em situa&#231;&#227;o de espera (supl&#234;ncia) deve acompanhar o seguinte cronograma para divulga&#231;&#227;o da chamada, estando seu CPF liberado para as matriculas novas em 30/01/2020.
+
+     Ordem	  Divulga&#231;&#227;o da Chamada	    Prazo para Efetiva&#231;&#227;o
+2&#170; Chamada	          14/01/2020	           15, 16 e 17/01/2020
+3&#170; Chamada	          20/01/2020	           21, 22 e 23/01/2020
+4&#170; Chamada	          24/01/2020	           27, 28 e 29/01/2020
+
+
+INFORMA&#199;&#213;ES IMPORTANTES:
+
+A solicita&#231;&#227;o com VAGA CONCEDIDA tem o prazo de 03 dias &#250;teis para a efetiva&#231;&#227;o, caso n&#227;o seja efetivada a mesma ser&#225; CANCELADA por motivo de prazo expirado. 
+
+O estudante que obteve vaga concedida informando que possui necessidade educacional especial, deve, no ato da efetiva&#231;&#227;o da matr&#237;cula na escola, apresentar um dos comprovantes abaixo:
+
+&#149;	Plano de Atendimento AEE (Atendimento Educacional Especial) e/ou PEI (Plano Educacional Individualizado).
+&#149;	Avalia&#231;&#227;o Biopsicossocial da defici&#234;ncia;
+&#149;	Avalia&#231;&#227;o psicopedag&#243;gico ou relat&#243;rio pedag&#243;gico;
+&#149;	Laudo M&#233;dico.
+
+Relembramos que dia 31/01/2020 inicia o per&#237;odo para solicita&#231;&#245;es de novos estudantes, quando ser&#227;o disponibilizadas as escolas que possuem vagas. O estudante que realizou a solicita&#231;&#227;o no per&#237;odo anterior e n&#227;o obteve vaga, ter&#225; seu CPF liberado para nova solicita&#231;&#227;o.
+
+2.	TRANSFER&#202;NCIA AUTOM&#193;TICA E POR INTERESSE PR&#211;PRIO
+
+Alertamos ao estudante da Rede Estadual de Ensino e Rede Municipal dos munic&#237;pios de Natal e Maca&#237;ba que desejar realizar transfer&#234;ncia para uma escola da Rede Estadual que o per&#237;odo para solicita&#231;&#227;o iniciou dia 26/12/2019 e ficar&#225; dispon&#237;vel at&#233; o dia 24/01/2020. A divulga&#231;&#227;o do resultado ser&#225; realizada no dia 27/01/2020. 
+
+		Para a disponibiliza&#231;&#227;o do resultado no qual &#233; concedida vaga para o estudante, o SIGEDUC processar&#225; de acordo com os crit&#233;rios abaixo, respectivamente:
+
+1.	Irm&#227;o na escola selecionada
+2.	Georreferenciamento - escola origem x escola destino
+3.	N&#250;mero de ordem da solicita&#231;&#227;o de matr&#237;cula
+
+
+Agradecemos, desde j&#225;, a aten&#231;&#227;o e observ&#226;ncia dos prazos e crit&#233;rios, desejando um Ano Letivo pleno de realiza&#231;&#245;es e sucesso na aprendizagem dos estudantes do Rio Grande do Norte!
+		</p>
+		
+		<p>
+			<a href="/sigeduc/verProducao?idProducao=319071
+				&key=49c58dfd34f456fb3b62371f27117c91" target="_blank">
+				<img src="/shared/img/download.png"/> Baixar Anexo
+				
+				
+			</a>
+		</p>	
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Resultado das Solicita&#231;&#245;es de Vaga do Ensino M&#233;dio e Profissional em tempo Integral
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 Prezados,
+
+Informamos que o resultado com a listagem dos estudantes que obtiveram vaga concedida e os que est&#227;o em espera, est&#225; dispon&#237;vel desde o dia 08/01/2020 &#224;s 17:00 atrav&#233;s do portal publico (Portal da Matricula).
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Vota&#231;&#227;o para novo logo da Escola Professora Maria Queiroz
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 A Escola Estadual Professora Maria Queiroz completar&#225; 38 anos e est&#225; fazendo uma Enquete online para a escolha do novo logo da escola. 
+Essa vota&#231;&#227;o est&#225; sendo feita com a comunidade, alunos, pais, professores, ex-alunos, etc.
+
+<p><a title="link" href="https://forms.gle/m6j47XVydXzse8GT7"> Clique aqui para votar</a></p>
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Resultado do Processo Seletivo Projovem Urbano, Edital 01/2019-SUEJA/SEEC/RN &#150; Cadastro de Reserva
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 O resultado do Processo Seletivo para Cadastro de Reserva do Programa Nacional de Inclus&#227;o de Jovens &#150; Projovem Urbano, Edi&#231;&#227;o Especial 2017 est&#225; dispon&#237;vel para verifica&#231;&#227;o a partir do dia 07/12/2019 [S&#225;bado]. O candidato que se inscreveu pode acessar sua &#225;rea de inscri&#231;&#227;o e ver seu resultado. Lembramos que o per&#237;odo para interposi&#231;&#227;o de recurso ocorrer&#225; nos dias 09 e 10 de dezembro atrav&#233;s de formul&#225;rio anexado no SigEduc. O resultado final est&#225; previsto para ser divulgado no Di&#225;rio Oficial do Estado dia 13/12/2019.
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Dia da F&#237;sica vira tema de minifeira em escola estadual
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 No &#250;ltimo domingo (19) foi comemorado o Dia da F&#237;sica. A data faz alus&#227;o ao ano de 1905, quando Albert Einstein publicou seus artigos referentes &#224; Teoria da Relatividade, estudo esse que revolucionaria a compreens&#227;o sobre f&#237;sica. Escolas da rede estadual de ensino realizam, nesta semana, atividades relativas a data. 
+ 
+Dentre as unidades de ensino que trabalhar&#227;o o dia da f&#237;sica est&#225; a escola estadual Zila Mamede, localizada em Natal, que organiza, at&#233; hoje (21), uma minifeira, da qual os alunos ir&#227;o expor experimentos feitos a partir dos conhecimentos adquiridos sobre f&#237;sica em sala de aula. A professora respons&#225;vel pela atividade &#233; Amanda Vivian, docente de f&#237;sica.
+
+A educadora explica que usa aulas experimentais para melhorar a compreens&#227;o dos alunos, &#147;com a ajuda da divulga&#231;&#227;o cient&#237;fica; que &#233; a &#225;rea que estou seguindo, planejei esse evento na minha pr&#225;tica para que os estudantes possam enxergar essa ci&#234;ncia de uma maneira mais pr&#243;xima de seu dia a dia, transformando a teoria em algo palp&#225;vel&#148;. Amanda realiza a atividade desde 2013 na escola.  
+
+&#147;A f&#237;sica envolve o nosso cotidiano, s&#227;o diversas coisas que acontecem no dia a dia que n&#227;o sabemos como acontece a ap&#243;s entender, voc&#234; percebe o quanto a f&#237;sica &#233; importante&#148;, relata o estudante Jo&#227;o Victor, monitor de f&#237;sica da escola, estuda o 3&#186; ano do ensino m&#233;dio e explica que quando entrou na escola, tinha bastante curiosidade em entender sobre f&#237;sica e hoje, ap&#243;s melhorar suas notas na disciplina, diz que sente prazer em ajudar quem tem dificuldade como ele teve no passado. 
+
+Esse ano, os f&#237;sicos homenageados pela escola ser&#227;o Einstein e Stephen Hawking. No Brasil, o 19 de maio passou a ser comemorado a partir de 2005, quando a ONU (Organiza&#231;&#227;o das Na&#231;&#245;es Unidas), deliberou o ano como o Ano Internacional da F&#237;sica, em homenagem aos cem anos do &#147;Ano Miraculoso de Einsten&#148;.
+		</p>
+		
+		<p>
+			<a href="/sigeduc/verProducao?idProducao=275426
+				&key=8f29cd9b2d7f4d6df66f1dbb5ae52ab7" target="_blank">
+				<img src="/shared/img/download.png"/> Baixar Anexo
+				
+				
+			</a>
+		</p>	
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Aluna da rede p&#250;blica ganha 1&#186; lugar em feira de ci&#234;ncias nos EUA
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 A estudante Ekarinny Myrela Brito de Medeiros, aluna da Ufersa e egressa da escola estadual Herm&#243;genes Nogueira Costa, localizada em Mossor&#243;, conquistou, na &#250;ltima sexta-feira (17), durante a Intel ISEF, Feira Internacional de Ci&#234;ncias e Engenharia, o 1&#186; lugar da Patent and Trademark Office Society e o 4&#186; lugar na categoria Translational Medical Science (TMED). A feira e premia&#231;&#227;o aconteceram na cidade de Phoenix, no Arizona (EUA).
+
+A &#250;nica representante do RN na feira defendeu o projeto &#147;Desenvolvimento de cateter bioativo proveniente do aproveitamento do l&#237;quido da castanha do caju (Anacardium Occidentale) como alternativa na preven&#231;&#227;o de infec&#231;&#227;o sist&#234;mica&#148;. O trabalho come&#231;ou a ser concebido ap&#243;s uma experi&#234;ncia familiar da estudante. Ekarinny perdeu uma tia, v&#237;tima de infec&#231;&#227;o na corrente sangu&#237;nea, ocasionada por um cateter. Diante desse acontecimento, a aluna iniciou estudos e descobriu que n&#227;o havia cateter que possu&#237;sse propriedades bioativas, que inibe bact&#233;rias.
+
+Al&#233;m das premia&#231;&#245;es oficiais, Ekarinny foi convidada para publicar o seu projeto no International Journal of High School Research. &#147;Nunca imaginei que poderia subir duas vezes no palco da Intel e conseguir o quarto lugar na minha categoria. Queria agradecer a todas as pessoas que me ajudaram, ao Governo do Estado, ao Programa Ci&#234;ncia para Todos, a Ufersa &#150; a minha universidade, ao CCAA, aos vereadores que me apoiaram. Sintam-se todos abra&#231;ados&#148;, disse Ekarinny.
+
+A SEEC, em parceria com universidades do RN, como a UERN e Ufersa, realiza a&#231;&#245;es com foco no desenvolvimento do pensamento cient&#237;fico dos estudantes e na motiva&#231;&#227;o dos professores na realiza&#231;&#227;o de a&#231;&#245;es que dinamizem a ci&#234;ncia em sala de aula.  "Para n&#243;s, &#233; motivo de orgulho ver tantos estudantes trilhando um caminho de sucesso por meio da inicia&#231;&#227;o cient&#237;fica&#148;, pontua M&#225;rcia Gurgel, secret&#225;ria adjunta de Educa&#231;&#227;o. Com informa&#231;&#245;es da Ufersa.
+		</p>
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			DIREC - Apresenta&#231;&#227;o Treinamento SIPAC (Levantamento Patrimonial)
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 DIREC - Apresenta&#231;&#227;o Treinamento SIPAC (Levantamento Patrimonial)
+		</p>
+		
+		<p>
+			<a href="/sigeduc/verProducao?idProducao=151266
+				&key=277f27d3cbf084725a7073b177996e72" target="_blank">
+				<img src="/shared/img/download.png"/> Baixar Anexo
+				
+				
+			</a>
+		</p>	
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			DIREC - Roteiro Treinamento SIPAC (Levantamento Patrimonial)
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 Roteiro Treinamento SIPAC - Levantamento Patrimonial
+		</p>
+		
+		<p>
+			<a href="/sigeduc/verProducao?idProducao=151265
+				&key=cabbed38d286c94878bd1f365f248909" target="_blank">
+				<img src="/shared/img/download.png"/> Baixar Anexo
+				
+				
+			</a>
+		</p>	
+		
+	</div>
+	
+	<div class="noticia">
+		<h4>
+			Guia - Ata Eletr&#244;nica
+			<span class="data">
+			
+			</span>
+		</h4>
+		
+		<p>
+		 Prezados, 
+<br/>
+     Encontra-se disponivel o Guia de Treinamento do Modulo Ata Eletr&#244;nica para as Escolas da Rede Privada e Municipal de ensino.
+
+<br/>
+Atenciosamente,
+
+<br/>
+Soinspe/SEEC
+		</p>
+		
+		<p>
+			<a href="/sigeduc/verProducao?idProducao=283070
+				&key=253ce2f1f3486f35560c4cf623d36a3c" target="_blank">
+				<img src="/shared/img/download.png"/> Baixar Anexo
+				
+			</a>
+		</p>	
+	</div>
+</div>
+
+<script>
+	var ativo = Ext.get('');
+	
+	
+	function setAba(nomeAba) {
+		$(aba).value=nomeAba;
+	}
+	
+	var queryString = function () {
+		// This function is anonymous, is executed immediately and 
+		// the return value is assigned to QueryString!
+		var queryString = {};
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i = 0; i < vars.length; i++) {
+			var pair = vars[i].split("=");
+			
+			// If first entry with this name
+			if (typeof queryString[pair[0]] === "undefined") {
+				queryString[pair[0]] = pair[1];
+			// If second entry with this name
+			} else if (typeof queryString[pair[0]] === "string") {
+				var arr = [queryString[pair[0]], pair[1] ];
+				queryString[pair[0]] = arr;
+			// If third or later entry with this name
+			} else {
+				queryString[pair[0]].push(pair[1]);
+			}
+		} 
+	    return queryString;
+	} ();
+</script>
+<script type="text/javascript" src="/shared/javascript/public/menu.js"> </script>
+<script>
+	if (queryString.aba != null){
+		setAba('p-' + queryString.aba);
+			
+		ativo.hide();
+		ativo.removeClass("item-over");
+		ativo = Ext.get('p-' + queryString.aba);
+		ativo.show();
+		Ext.get('l-' +  ativo.id.substring(2)).radioClass('item-over');
+	}
+</script>
+<script type="text/javascript">
+function avisoMonitoramentoIndisponivel() {
+
+	return alert('O acesso ao Monitoramento da Educa\u00E7\u00E3o se encontra temporariamente indispon\u00EDvel.');
+}
+</script>
+
+	<div class="clear"></div>
+	</div>
+
+	<div id="rodape">
+		<p>	
+			SIGEduc | <small>SEEC - RN</small> - (84) 3232-1897 / (84) 32321316 - seec-app2.imd.ufrn.br.s2i1
+			 
+				v20200430_1723
+		</p>
+	</div>
+
+	<!-- Fim dos containers -->
+	</div>
+	</div>
+<!-- MYFACES JAVASCRIPT -->
+<script>
+
+function show_carregando(){	
+	document.getElementById("aviso_na_tela").style.display='block';
+	document.getElementById("aviso_na_tela").style.height= document.getElementById("container").clientHeight + 'px';
+	document.getElementById("loading").style.display='block';
+}
+</script>
+</body>
+</html>

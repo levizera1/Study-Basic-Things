@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+   <title>DOM2</title>
+ </head>
+ <!-- <body>
+   <style>
+    #area{
+     background: blue;
+     width:150px;
+     height:150px;
+     color: white;
+     line-height: 160px;
+     text-align: center;
+     border-radius:50%;
+   }
+     
+   </style>
+   
+   
+   
+   <div id="area" onclick="clicar()"> interaja...</div>
+   
+   <script>
+     function clicar(){
+       var a = document.getElementById('area')
+       a.innerText = 'clicou!'
+       a.style.background = 'red'
+     }
+     
+     
+   </script>
+   
+ </body>
+ xxxxxxxxxxxxxxx
+ 
+ Segunda forma usando somente o js 
+ 
+ <body>
+   <style>
+     
+    #area{
+     background: blue;
+     width:150px;
+     height:150px;
+     color: white;
+     line-height: 160px;
+     text-align: center;
+     border-radius:50%;
+   }
+     
+   
+   </style>
+   
+   <div id="area">Clique aqui!</div>
+   
+ <script>
+   var a = document.getElementById('area')
+   a.addEventListener('click', clicar)
+
+   function clicar(){
+       a.innerText = 'clicou!'
+       a.style.background = 'red'
+     }
+   
+ </script>
+ </body>
+ 
+ 
+ </html>
+ -->
+ 
+<!-- Terceiro "Exercicio" -->
+
+<body>
+<style>
+h1{
+  font-size: 45px;
+}
+#txtn1{
+  width: 80px;
+}
+#txtn2{
+  width: 80px;
+}
+#btn{
+  margin-left: 5px;
+}
+#res {
+  margin-top: 10px;
+  box-shadow: 1px 1px 2px gray;
+}
+
+</style>
+  
+  <h1>Somando Valores</h1>
+  <input type="number" name="txtn1" id="txtn1"> +
+  <input type="number" name="txtn2" id="txtn2">
+  <input type="button" value="somar" onclick="somar()" id="btn">
+  <div id="res">Resultado</div>
+  
+  
+<script>
+   function somar(){
+     var tn1 = document.getElementById('txtn1')
+     var tn2 = document.getElementById('txtn2')
+     var res = document.getElementById('res')
+     var n1 = Number(tn1.value)
+     var n2 = Number(tn2.value)
+     var s = n1 + n2 
+     res.innerText = `A soma dos valores é igual a ${s}`
+   }
+</script>
+  
+</body>
+</html>

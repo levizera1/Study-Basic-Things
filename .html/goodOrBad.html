@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width. initial-scale=1.0">
+  </head>
+  <body>
+    <style>
+      #titulo{
+        text-align: center;
+      }
+      h2{
+        text-align: center;
+      }
+      #feel{
+        margin-top:15px;
+        margin-left: 50px;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      #btn{
+        padding: 5px;
+        border-radius: 5px;
+      }
+      #res{
+        font-size: 15px;
+        margin-top: 10px;
+      }
+    </style>
+    
+    <h1 id="titulo">Como você está se sentindo hoje?</h1>
+    
+    <h2>Você está bem ou mal?</h2>
+    
+    <input type="text" name="txtvel" id="feel">
+   
+   <input type="button" value="Verificar" onclick="sentir()" id="btn"> 
+    
+    <div id="res"></div>
+    
+    <script>
+   function sentir(){
+      var txtv = document.getElementById("feel")
+      
+      var res = document.getElementById("res")
+      
+      var felng = (txtv.value)
+      
+      res.innerHTML = ' ' //"tag" obrigatória para que o texto não se repita
+      
+      if (felng == "Bem"){
+        res.innerHTML += 'A nossa felicidade depende mais do que temos nas nossas cabeças, do que nos nossos bolsos. - <i>Arthur Schopenhauer</i>'
+        
+      } else
+      
+      res.innerHTML += 'Se algumas pessoas se afastarem de você, não fique triste, isso é resposta da oração: “livrai-me de todo mal, amém”. - <i>Caio Fernando Abreu</i>'
+    }
+    </script>
+  </body>
+</html>

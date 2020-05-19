@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+   <title>DOM2</title>
+ </head>
+ <body>
+   <style>
+   
+   input{
+     width:100px;
+     border-radius:5px;
+     box-shadow: 2px 2px #e59789;
+   }
+   #botao{
+     margin-left: 10px;
+   }
+   #resultado{
+     margin-top: 25px;
+   }
+     h1{
+       font-size: 35px;
+       font-family: 'Arial';
+       text-shadow: 2px 2px 4px #e59789;
+     }
+     h4{
+       text-shadow: 2px 2px 4px #e59789;
+       font-size: 25px;
+     }
+     p{
+       text-shadow: 2px 2px 4px #e59789;
+       font-size: 15px;
+     }
+     #resultado{
+       font-size: 15px;
+       text-shadow: 2px 2px 3px #e59789;
+     }
+     
+     #all {
+       padding: 3px;
+       margin-top: 20px;
+     }
+     img{
+       width: 100px;
+       display: center;
+       position:absolute;
+       margin-top:10px;
+       margin-left:30%;
+     }
+   </style>
+   <div id="all">
+   <h1>Quer saber qual é o Chip do seu nome com o do seu(sua) Crush?
+   </h1>
+   
+   <h4>Vamos Lá...</h4>
+   
+   <div class="descricao">
+     <p> Em uma das caixinhas abaixo coloque o seu nome, e na outra, o nome de seu(sua) Crush...</p>
+   </div>
+   <input type="text" id="nome1"> +
+   <input type="text" id="nome2">
+   <input type="button" value="CHIPAR" id="botao" onclick="chipar()">
+   <div id="resultado">O resultado é:</div>
+   
+   <img src="animated.gif">>
+   
+   </div>
+   <script>
+     function chipar(){
+       var nome1 = document.getElementById('nome1')
+       var nome2 = document.getElementById('nome2')
+       var resultado = document.getElementById('resultado')
+       var no1 = (nome1.value).substr(0,2)
+       var no2 = (nome2.value).substr(2,4)
+       var chip = no1 + no2
+       resultado.innerText = ('O seu chip é ' + chip) 
+     }
+ 
+   </script>
+   </body>
+   </html>

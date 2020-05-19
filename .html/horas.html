@@ -1,0 +1,77 @@
+<!doctype html><html lang="pt-BR"><head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Exercício</title> 
+ <style type="text/css" id="dcoder_stylesheet">body{
+  background:#c8bfe7;
+  font:normal 15pt 'Arial';
+}
+
+header{
+  color:white;
+  text-align:center;
+}
+
+section{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  width:90%;
+  margin:auto;
+  box-shadow: 3px 3px 6px gray;
+}
+
+footer{
+  color:white;
+  text-align: center;
+  font-style: italic;
+  boder: 1px dashed black;
+}
+
+#imagem{
+  width:120px;
+  margin-left:85px;
+  padding:10px;
+}
+
+
+#msg{
+  text-align:center;
+  font-size:15px;
+}</style></head> 
+ <body onload="carregar()"> 
+  <header> 
+   <h1>Relógio</h1> 
+  </header> 
+  <section> 
+   <div id="msg"> 
+    <h4>Agora está de ...</h4> 
+   </div> 
+   <div id="foto"> 
+    <img src="manha.png" id="imagem"> 
+   </div> 
+  </section> 
+  <footer> 
+   <p>©levi_ferreira_ofc</p> 
+  </footer> 
+ 
+<script type="text/javascript" id="dcoder_script">function carregar() {
+  var msg = document.getElementById("msg")
+  var img = document.getElementById("imagem")
+  var data = new Date()
+  var hora = data.getHours()
+      msg.innerHTML = "Agora são " + hora + "Horas"
+    if (hora >= 0 && hora < 12) {
+      //BOM DIA!!!
+      img.src="manha.png"
+      document.body.style.background = "#cbcba9"
+    }else if (hora >= 12 && hora < 18){
+      //BOA TARDE!!!
+      img.src="tarde.png"
+      document.body.style.background = "#ff9b35"
+    }else {
+      //BOA NOITE!!!
+      img.src="noite.png"
+      document.body.style.background = "#3b5998"
+    }
+}</script></body></html>
